@@ -8,12 +8,28 @@ pull_request_rules:
       delete_head_branch:
         force: false
 
+  - name: vm3 email CODEOWNER bot copy 20260917
+    conditions:
+      - title = VM3 email CODEOWNER bot source 20260917
+      - base = main
+    actions:
+      copy:
+        branches:
+          - vm3-codeowners-email-bot-base-20260917
+
 queue_rules:
   - name: vm3-email-codeowner-20260917
     queue_conditions:
       - base = vm3-codeowners-email-base-20260917
     merge_conditions:
       - label = vm3-never-email-co-20260917
+    merge_method: merge
+
+  - name: vm3-email-codeowner-bot-20260917
+    queue_conditions:
+      - base = vm3-codeowners-email-bot-base-20260917
+    merge_conditions:
+      - label = vm3-never-email-co-bot-20260917
     merge_method: merge
 
 merge_queue:
