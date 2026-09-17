@@ -7,3 +7,14 @@ pull_request_rules:
     actions:
       delete_head_branch:
         force: false
+
+merge_protections:
+  - name: vm3 self-delete blocker sd9f17
+    if:
+      - title = VM3 MP self-delete sd9f17
+    success_conditions:
+      - label = vm3-never-self-delete-sd9f17
+
+merge_protections_settings:
+  reporting_method: check-runs
+  post_comment: false
