@@ -1,0 +1,19 @@
+name: VM3 Schedule Delay
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  delay:
+    name: vm3-schedule-delay
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cross schedule boundary
+        run: |
+          echo "started=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          sleep 180
+          echo "finished=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
