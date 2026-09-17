@@ -1,11 +1,4 @@
 pull_request_rules:
-  - name: vm3 external auto merge method am9f17
-    conditions:
-      - title = VM3 external auto merge-method current am9f17
-      - base = vm3-auto-method-base-am9f17
-    actions:
-      merge: {}
-
   - name: vm3 d6w8 delayed delete head
     conditions:
       - closed
