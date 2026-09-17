@@ -7,25 +7,3 @@ pull_request_rules:
     actions:
       delete_head_branch:
         force: false
-
-  - name: vm3 qprefix refs-heads runtime qh9f17
-    conditions:
-      - title = VM3 qprefix refs-heads runtime qh9f17
-      - base = vm3-qprefix-base-qh9f17
-    actions:
-      queue:
-        name: vm3-qprefix-qh9f17
-
-queue_rules:
-  - name: vm3-qprefix-qh9f17
-    queue_conditions: []
-    merge_conditions:
-      - check-success = vm3-qprefix-runtime-check
-      - label = vm3-never-qprefix-qh9f17
-    merge_method: merge
-    allow_inplace_checks: false
-    queue_branch_prefix: refs/heads/vm3-qprefix-head-qh9f17-
-
-merge_queue:
-  mode: serial
-  max_parallel_checks: 1
