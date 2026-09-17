@@ -7,3 +7,15 @@ pull_request_rules:
     actions:
       delete_head_branch:
         force: false
+
+queue_rules:
+  - name: vm3-email-codeowner-20260917
+    queue_conditions:
+      - base = vm3-codeowners-email-base-20260917
+    merge_conditions:
+      - label = vm3-never-email-co-20260917
+    merge_method: merge
+
+merge_queue:
+  mode: serial
+  max_parallel_checks: 1
