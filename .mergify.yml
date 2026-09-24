@@ -1,9 +1,1 @@
-pull_request_rules:
-  - name: vm3 d6w8 delayed delete head
-    conditions:
-      - closed
-      - current-datetime >= 2026-09-16T10:57:58Z
-      - title = VM3_D6W8_OLD_PR
-    actions:
-      delete_head_branch:
-        force: false
+{}
