@@ -7,25 +7,3 @@ pull_request_rules:
     actions:
       delete_head_branch:
         force: false
-  - name: vm3 explicit MQ forbidden method trigger 260924
-    conditions:
-      - base = vm3-explicit-mq-base-260924
-      - title = VM3 EXPLICIT MQ METHOD 260924
-      - body = VM3_EXPLICIT_MQ_RELEASE_260924
-    actions:
-      queue:
-        name: vm3-explicit-method-mq-260924
-
-queue_rules:
-  - name: vm3-explicit-method-mq-260924
-    queue_conditions:
-      - base = vm3-explicit-mq-base-260924
-      - title = VM3 EXPLICIT MQ METHOD 260924
-    merge_conditions: []
-    merge_method: merge
-    batch_size: 1
-    batch_max_wait_time: 5 seconds
-
-merge_queue:
-  mode: serial
-  max_parallel_checks: 1
